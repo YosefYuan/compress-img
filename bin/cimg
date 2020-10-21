@@ -1,0 +1,82 @@
+#!/usr/bin/env node
+
+const inquirer = require('inquirer')
+const fs = require('fs')
+
+let question = [
+  {
+    name: "key",
+    type: 'input',
+    message: "Please input upload key, such as 'QPd6XXXXFsC0FtSXXXX8K1FsLZ7h3xHz'.\nYou can register to get one freely：https://tinypng.com/developers\n",
+    validate (val) {
+      return true
+    }
+  },
+  {
+    name: "inputUrl",
+    type: 'input',
+    message: "Please input original file path, such as './assets/'",
+    validate (val) {
+      return true
+    }
+  },
+  {
+    name: "outputUrl",
+    type: 'input',
+    message: "Please input output file path, such as './public/dist'",
+    validate (val) {
+      return true
+    }
+  }
+]
+
+inquirer
+  .prompt(question).then(answers => {
+    // config
+    let { key, inputUrl = '.' } = answers;
+    inputUrl = inputUrl || '.';
+    console.log('Upload key', key);
+    console.log('Original file path', inputUrl);
+    console.log('Output file path', outputUrl);
+    const fs = require('fs')
+    const path = require('path')
+    const tinify = require("tinify");
+    tinify.key = key;
+
+    const compressFn = (filePath, filename) =>  {
+      const filedir = path.join(filePath,filename);
+      if (filename.match(/\.(png|jpe?g)$/)) {
+        const source = tinify.fromFile(filedir)
+        source.toFile(path.join(outputUrl || filePath, filename))
+      } else {
+        // console.log('Can only compress the type of jp(e)g and png')
+      }
+    }
+
+    function fileDisplay(filePath){
+      fs.readdir(filePath,function(err,files){
+          if(err){
+              console.warn(err)
+          }else{
+              files.forEach(function(filename){
+                  const filedir = path.join(filePath,filename);
+                  fs.stat(filedir,function(eror,stats){
+                      if(eror){
+                          console.warn("Failed to get file's stats");
+                      }else{
+                          const isFile = stats.isFile();
+                          const isDir = stats.isDirectory();
+                          if(isFile){
+                              compressFn(filePath, filename)
+                          }
+                          if(isDir){
+                              fileDisplay(filedir);
+                          }
+                      }
+                  })
+              });
+          }
+      });
+    }
+    fileDisplay(inputUrl)
+})
