@@ -5,10 +5,10 @@ It's a util depends on the tinypng nodejs. This is a detail doc:
 
 ## Usage
 
-1. You should register to get one key freely at first(500 pictures at most one month),
+1.You should register to get one key freely at first(500 pictures at most one month),
 [freely register](https://tinypng.com/developers)
 
-2. Install
+2.Install
 
   ```<shell>
   yarn add tcimg -g
@@ -20,7 +20,7 @@ It's a util depends on the tinypng nodejs. This is a detail doc:
   npm install tcimg -g
   ```
 
-3. Input the command in command line
+3.Input the command in command line
 
 ```<shell>
 tcimg
@@ -28,7 +28,7 @@ tcimg
 
 Input the key you get after register successfully
 
-![usage](./demo/imgs/usage.jpg)
+![usage](https://raw.githubusercontent.com/YosefYuan/tinypng-cimg/main/assets/usage.jpg)
 
 PS: The picture is just a sign, the key is not right.
 
