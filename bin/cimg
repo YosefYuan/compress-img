@@ -33,7 +33,7 @@ let question = [
 inquirer
   .prompt(question).then(answers => {
     // config
-    let { key, inputUrl = '.' } = answers;
+    let { key, inputUrl = '.', outputUrl } = answers;
     inputUrl = inputUrl || '.';
     console.log('Upload key', key);
     console.log('Original file path', inputUrl);
@@ -55,25 +55,27 @@ inquirer
 
     function fileDisplay(filePath){
       fs.readdir(filePath,function(err,files){
+          const excludeFolders = ['.DS_Store', '.git', 'node_modules', 'bin', '.gitignore', 'README.md', 'package-lock.json', 'package.json', 'yarn.lock']
+          files = files.filter(file => !excludeFolders.includes(file))
           if(err){
               console.warn(err)
           }else{
               files.forEach(function(filename){
-                  const filedir = path.join(filePath,filename);
-                  fs.stat(filedir,function(eror,stats){
-                      if(eror){
-                          console.warn("Failed to get file's stats");
-                      }else{
-                          const isFile = stats.isFile();
-                          const isDir = stats.isDirectory();
-                          if(isFile){
-                              compressFn(filePath, filename)
-                          }
-                          if(isDir){
-                              fileDisplay(filedir);
-                          }
-                      }
-                  })
+                const filedir = path.join(filePath,filename);
+                fs.stat(filedir,function(eror,stats){
+                    if(eror){
+                        console.warn("Failed to get file's stats");
+                    }else{
+                        const isFile = stats.isFile();
+                        const isDir = stats.isDirectory();
+                        if(isFile){
+                            compressFn(filePath, filename)
+                        }
+                        if(isDir){
+                            fileDisplay(filedir);
+                        }
+                    }
+                })
               });
           }
       });
