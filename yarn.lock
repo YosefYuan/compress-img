@@ -210,15 +210,6 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-tcimg@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/tcimg/-/tcimg-1.0.0.tgz#b0b77b03f204aee1bb9848051de7325f607c0571"
-  integrity sha512-Sxi32uFVEVewBXUWooipXB0FTA5bfBkqXBmFfVkNHBCstlDR8/ufO62VpCDbKTJL0eCNtSYWzXmz6Na3i0LMOg==
-  dependencies:
-    chalk "^4.1.0"
-    inquirer "^7.3.3"
-    tinify "^1.6.0-beta.2"
-
 through@^2.3.6:
   version "2.3.8"
   resolved "https://registry.npmjs.org/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
