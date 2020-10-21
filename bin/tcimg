@@ -42,12 +42,19 @@ inquirer
     const path = require('path')
     const tinify = require("tinify");
     tinify.key = key;
+    let count = 0;
 
     const compressFn = (filePath, filename) =>  {
       const filedir = path.join(filePath,filename);
       if (filename.match(/\.(png|jpe?g)$/)) {
+        // eslint-disable-next-line no-console
+        console.log(`Compressing:${filedir}`);
         const source = tinify.fromFile(filedir)
-        source.toFile(path.join(outputUrl || filePath, filename))
+        source.toFile(path.join(outputUrl || filePath, filename)).then(res => {
+          count += 1;
+          console.log(`${filedir} was compressed successfully`);
+          console.log(`Already have compressed ${count} images`);
+        })
       } else {
         // console.log('Can only compress the type of jp(e)g and png')
       }
