@@ -28,7 +28,7 @@ tcimg
 
 Input the key you get after register successfully
 
-![usage](./demo/imgs/usage.jpg)
+![usage](./assets/usage.jpg)
 
 PS: The picture is just a sign, the key is not right.
 
