@@ -1,12 +1,12 @@
 # Tcimg
 
-It's a util depends on the tinypng nodejs. This is a detail doc:
+It's a util depending on the tinypng nodejs. This is a detail doc:
 [API Reference](https://tinypng.com/developers/reference/nodejs)
 
 ## Usage
 
-1.You should register to get one key freely at first(500 pictures at most one month),
-[freely register](https://tinypng.com/developers)
+1.You should register to get one key freely at first(500 pictures / month at most).
+[Freely register](https://tinypng.com/developers)
 
 2.Install
 
@@ -30,6 +30,6 @@ Input the key you get after register successfully
 
 ![usage](https://raw.githubusercontent.com/YosefYuan/tinypng-cimg/main/assets/usage.jpg)
 
-PS: The picture is just a sign, the key is not right.
+PS: The key in The picture is just a sign and not right.
 
 Cheers~~~
