@@ -1,17 +1,17 @@
 # Tcimg
 
-It's a util depends on the tinypng nodejs. This is a detail doc:
+It's a util depending on the tinypng nodejs. This is a detail doc:
 [API Reference](https://tinypng.com/developers/reference/nodejs)
 
 ## Usage
 
-1. You should register to get one key freely at first(500 pictures at most one month),
-[freely register](https://tinypng.com/developers)
+1.You should register to get one key freely at first(500 pictures / month at most).
+[Freely register](https://tinypng.com/developers)
 
-2. Install
+2.Install
 
   ```<shell>
-  yarn add tcimg -g
+  yarn global add tcimg
   ```
 
   or
@@ -20,7 +20,7 @@ It's a util depends on the tinypng nodejs. This is a detail doc:
   npm install tcimg -g
   ```
 
-3. Input the command in command line
+3.Input the command in command line
 
 ```<shell>
 tcimg
@@ -28,8 +28,8 @@ tcimg
 
 Input the key you get after register successfully
 
-![usage](./assets/usage.jpg)
+![usage](https://raw.githubusercontent.com/YosefYuan/img_bed/master/cimg/usage.jpg)
 
-PS: The picture is just a sign, the key is not right.
+PS: The key in The picture is just a sign and not right.
 
 Cheers~~~
