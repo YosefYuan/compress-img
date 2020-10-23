@@ -11,7 +11,7 @@ It's a util depends on the tinypng nodejs. This is a detail doc:
 2.Install
 
   ```<shell>
-  yarn add tcimg -g
+  yarn global add tcimg
   ```
 
   or
