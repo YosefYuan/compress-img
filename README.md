@@ -1,6 +1,6 @@
 # Tcimg
 
-It's a util depending on the tinypng nodejs. This is a detail doc:
+Tinypng NODEJS util (tcimg). This is a detail doc:
 [API Reference](https://tinypng.com/developers/reference/nodejs)
 
 ## Usage
