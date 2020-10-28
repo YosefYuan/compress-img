@@ -1,10 +1,14 @@
 {
   "name": "tinypng-tcimg",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "",
   "main": "index.js",
   "bin": {
     "tcimg": "bin/tcimg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:YosefYuan/tinypng-tcimg.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
