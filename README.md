@@ -1,4 +1,5 @@
 # Tcimg
+Please visit here: [NEW version](https://www.npmjs.com/package/tinypng-tcimg)
 
 Tinypng NODEJS util (tcimg). This is a detail doc:
 [API Reference](https://tinypng.com/developers/reference/nodejs)
