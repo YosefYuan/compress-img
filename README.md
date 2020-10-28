@@ -11,13 +11,13 @@ Tinypng NODEJS util (tcimg). This is a detail doc:
 2.Install
 
   ```<shell>
-  yarn global add tcimg
+  yarn global add tinypng-tcimg
   ```
 
   or
 
   ```<shell>
-  npm install tcimg -g
+  npm install tinypng-tcimg -g
   ```
 
 3.Input the command in command line
