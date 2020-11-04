@@ -2,28 +2,31 @@
 
 const inquirer = require('inquirer')
 const fs = require('fs')
+const chalk = require('chalk')
+const path = require('path')
+const tinify = require('tinify')
 
 let question = [
   {
-    name: "key",
+    name: 'key',
     type: 'input',
-    message: "Please input upload key, such as 'QPd6XXXXFsC0FtSXXXX8K1FsLZ7h3xHz'.\nYou can register to get one freely：https://tinypng.com/developers\n",
+    message: `Please input ${chalk.red('upload key')}, such as 'QPd6XXXXFsC0FtSXXXX8K1FsLZ7h3xHz'.\nYou can register to get one ${chalk.red('freely')} here: ${chalk.blue('https://tinypng.com/developers')} \n`,
     validate (val) {
       return true
     }
   },
   {
-    name: "inputUrl",
+    name: 'inputUrl',
     type: 'input',
-    message: "Please input original file path, such as './assets/'",
+    message: `Please input ${chalk.red('original')} file path (such as './assets/', the ${chalk.red('default')} path is ${chalk.red('.')}).\n The tool will ${chalk.red('recursively')} find all images in the ${chalk.red('path')} and the ${chalk.red('sub-path')}.\n`,
     validate (val) {
       return true
     }
   },
   {
-    name: "outputUrl",
+    name: 'outputUrl',
     type: 'input',
-    message: "Please input output file path, such as './public/dist'",
+    message: `Please input ${chalk.red('output')} file path, such as './public/dist'. \nIf the output path is ${chalk.red('empty')}, the compressed image will be saved in the ${chalk.red('same')} path as before.\n`,
     validate (val) {
       return true
     }
@@ -35,12 +38,10 @@ inquirer
     // config
     let { key, inputUrl = '.', outputUrl } = answers;
     inputUrl = inputUrl || '.';
-    console.log('Upload key', key);
-    console.log('Original file path', inputUrl);
-    console.log('Output file path', outputUrl);
-    const fs = require('fs')
-    const path = require('path')
-    const tinify = require("tinify");
+    outputUrl = outputUrl || 'Same file path as before';
+    console.log('Upload key', chalk.blue(key));
+    console.log('Original file path', chalk.blue(inputUrl));
+    console.log('Output file path', chalk.blue(outputUrl));
     tinify.key = key;
     let count = 0;
 
@@ -48,12 +49,12 @@ inquirer
       const filedir = path.join(filePath,filename);
       if (filename.match(/\.(png|jpe?g)$/)) {
         // eslint-disable-next-line no-console
-        console.log(`Compressing:${filedir}`);
+        console.log(`Compressing:${chalk.red(filedir)}`);
         const source = tinify.fromFile(filedir)
         source.toFile(path.join(outputUrl || filePath, filename)).then(res => {
           count += 1;
-          console.log(`${filedir} was compressed successfully`);
-          console.log(`Already have compressed ${count} images`);
+          console.log(`${chalk.blue(filedir)} was compressed successfully`);
+          console.log(`Already have compressed ${chalk.blue(count)} images`);
         })
       } else {
         // console.log('Can only compress the type of jp(e)g and png')
@@ -65,13 +66,13 @@ inquirer
           const excludeFolders = ['.DS_Store', '.git', 'node_modules', 'bin', '.gitignore', 'README.md', 'package-lock.json', 'package.json', 'yarn.lock']
           files = files.filter(file => !excludeFolders.includes(file))
           if(err){
-              console.warn(err)
+              console.warn(chalk.red(err))
           }else{
               files.forEach(function(filename){
                 const filedir = path.join(filePath,filename);
                 fs.stat(filedir,function(eror,stats){
                     if(eror){
-                        console.warn("Failed to get file's stats");
+                        console.warn(chalk.red(`Failed to get file's stats`));
                     }else{
                         const isFile = stats.isFile();
                         const isDir = stats.isDirectory();
