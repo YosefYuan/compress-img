@@ -28,7 +28,7 @@ tcimg
 
 Input the key you get after register successfully
 
-![usage](https://raw.githubusercontent.com/YosefYuan/img_bed/master/cimg/usage.jpg)
+![usage](https://raw.githubusercontent.com/YosefYuan/img_bed/master/cimg/usage.png)
 
 PS: The key in The picture is just a sign and not right.
 

@@ -1,6 +1,6 @@
 {
   "name": "tinypng-tcimg",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Tinypng NODEJS util (tcimg)",
   "main": "index.js",
   "bin": {

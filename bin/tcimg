@@ -38,10 +38,10 @@ inquirer
     // config
     let { key, inputUrl = '.', outputUrl } = answers;
     inputUrl = inputUrl || '.';
-    outputUrl = outputUrl || 'Same file path as before';
-    console.log('Upload key', chalk.blue(key));
-    console.log('Original file path', chalk.blue(inputUrl));
-    console.log('Output file path', chalk.blue(outputUrl));
+    outputUrl = outputUrl;
+    console.log('Upload key: ', chalk.blue(key));
+    console.log('Original file path: ', chalk.blue(inputUrl));
+    console.log('Output file path: ', chalk.blue(outputUrl || 'Same file path as before'));
     tinify.key = key;
     let count = 0;
 
